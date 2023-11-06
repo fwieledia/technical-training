@@ -20,7 +20,6 @@ class EstateProperty(models.Model):
     garden = fields.Boolean()
     garden_area = fields.Integer()
     garden_orientation = fields.Selection(
-        string="garden orientation",
         selection=[("n", "North"), ("s", "South"), ("e", "East"), ("w", "West")],
     )
 
@@ -32,7 +31,9 @@ class EstateProperty(models.Model):
             ("a", "Offer Accepted"),
             ("s", "Sold"),
             ("c", "Canceled"),
-        ]
+        ],
+        default="n",
+        copy=False
     )
 
     def _default_date(self):
