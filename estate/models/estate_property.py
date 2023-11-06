@@ -22,5 +22,7 @@ class EstateProperty(models.Model):
         selection=[("n", "North"), ("s", "South"), ("e", "East"), ("w", "West")]
     )
 
+    active = fields.Boolean()
+
     def _default_date(self):
         return fields.Date.add(fields.Date.context_today(self), months=3)
