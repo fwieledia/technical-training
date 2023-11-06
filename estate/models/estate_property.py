@@ -32,6 +32,7 @@ class EstateProperty(models.Model):
             ("s", "Sold"),
             ("c", "Canceled"),
         ],
+        required=True,
         default="n",
         copy=False
     )
