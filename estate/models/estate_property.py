@@ -37,8 +37,8 @@ class EstateProperty(models.Model):
         copy=False
     )
     property_type_id = fields.Many2one("estate.property.type", string="Property Type")
-    salesperson = fields.Many2one("res.partner")
-    buyer = fields.Many2one("res.user")
+    user_id = fields.Many2one("res.partner", string="Salesman", default=lambda self: self.env.user)
+    buyer_id = fields.Many2one("res.user", string="Buyer", copy=False)
 
     def _default_date(self):
         return fields.Date.add(fields.Date.context_today(self), months=3)
